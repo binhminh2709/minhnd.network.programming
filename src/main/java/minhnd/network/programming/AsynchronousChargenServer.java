@@ -42,8 +42,7 @@ public class AsynchronousChargenServer {
             SocketChannel client = server.accept();
             System.out.println("Accepted connection from " + client);
             client.configureBlocking(false);
-            SelectionKey key2 = client.register(selector, SelectionKey.
-                    OP_WRITE);
+            SelectionKey key2 = client.register(selector, SelectionKey.OP_WRITE);
             ByteBuffer buffer = ByteBuffer.allocate(74);
             buffer.put(rotation, 0, 72);
             buffer.put((byte) '\r');
